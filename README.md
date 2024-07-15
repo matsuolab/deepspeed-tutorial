@@ -33,7 +33,7 @@ Setting
     - 1: `YOUR_ABCI_ACCOUNT_NAME`
 
 ## Environment Set Up
-Creation of a virtual environment: work
+Create virtual environment: work
 ```
 source scripts/import-env.sh .env
 ```
