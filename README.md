@@ -29,7 +29,7 @@ Setting
     - 9: `YOUR_WANDB_ACCOUNT_NAME`
     - 17 and 20: `YOUR_ABCI_ACCOUNT_NAME`
 
-- First row in `.env`
+- First row in `.env`, set this environment variable to your working directory.
     - 1: `PATH_TO/deepspeed-abci-tutorial`
 
 ## Environment Set Up
