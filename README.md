@@ -33,6 +33,9 @@ Setting
     - 1: `PATH_TO/deepspeed-abci-tutorial`
 
 ## Environment Set Up
+```
+git clone https://github.com/matsuolab/deepspeed-abci-tutorial.git
+```
 Create virtual environment: work
 ```
 source scripts/import-env.sh .env
