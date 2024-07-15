@@ -1,3 +1,9 @@
+# This file is based on the original training/cifar/cifar10_deepspeed.py from [microsoft/DeepSpeedExamples]
+# Copyright [2023] [microsoft]
+# 
+# Modified by [Jeong Seong Cheol] in [2024]
+# [Change the task from cifar10 to ImageNet]
+
 # torch
 import torch
 import torchvision
