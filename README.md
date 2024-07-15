@@ -30,7 +30,7 @@ Setting
     - 17 and 20: `YOUR_ABCI_ACCOUNT_NAME`
 
 - First row in `.env`
-    - 1: `YOUR_ABCI_ACCOUNT_NAME`
+    - 1: `PATH_TO/deepspeed-abci-tutorial`
 
 ## Environment Set Up
 Create virtual environment: work
