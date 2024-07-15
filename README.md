@@ -7,10 +7,13 @@ You can be distributed learning master with this repogitory!
 # Quick Start : DeepSpeed Zero-2
 Zero-2 is most popular method.
 
+Setting
 - Task: Classification (1000 class)
 - Dataset: ImageNet train data (1,281,167 images)
 - Training Model: ResNet50 (full scratch)
 - Epoch: 1
+- Batch size: 10,000
+- V100: 9node 36 GPUs
 
 ## Edit config before training
 > [!NOTE]
