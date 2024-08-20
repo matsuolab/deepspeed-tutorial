@@ -1,22 +1,22 @@
 seed: 42
 
 imagenet:
-  train: /groups/gcb50389/datasets/imagenet/train
-  val: /groups/gcb50389/datasets/imagenet/val
+  train: imagenet/ILSVRC/Data/CLS-LOC/train
+  val: imagenet/ILSVRC/Data/CLS-LOC/val
 
 wandb:
-  project: deepspeed-abci-tutorial
-  entity: YOUR_WANDB_ACCOUNT_NAME
-  run_name: tutorial
+  project: deepspeed-tsubame40-tutorial
+  entity: <your wandb id>
+  run_name: tutorial-tsubame40
 
 train:
   epochs: 1
   log_interval: 4
   save_interval: 60
   max_global_step: -1
-  save_path: /scratch/YOUR_ABCI_ACCOUNT_NAME/deepspeed_abci_tutorial
+  save_path: scratch/deepspeed-tutorial
 
 eval:
-  ckpt_path: /scratch/YOUR_ABCI_ACCOUNT_NAME/deepspeed_abci_tutorial/tutorial/120/mp_rank_00_model_states.pt  
+  ckpt_path: PATH_TO/mp_rank_00_model_states.pt  
   batch_size: 280
   max_eval: 10

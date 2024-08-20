@@ -1,0 +1,668 @@
+r5n5: Warning: Permanently added 'r5n5' (ED25519) to the list of known hosts.
+Tue Aug 20 04:14:52 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 545.23.08              Driver Version: 545.23.08    CUDA Version: 12.3     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA H100                    On  | 00000000:04:00.0 Off |                    0 |
+| N/A   24C    P0              69W / 699W |      4MiB / 95830MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA H100                    On  | 00000000:64:00.0 Off |                    0 |
+| N/A   23C    P0              68W / 699W |      4MiB / 95830MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   2  NVIDIA H100                    On  | 00000000:84:00.0 Off |                    0 |
+| N/A   23C    P0              69W / 699W |      4MiB / 95830MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   3  NVIDIA H100                    On  | 00000000:E4:00.0 Off |                    0 |
+| N/A   22C    P0              69W / 699W |      4MiB / 95830MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+NUM_NODE:2
+NUM_GPUS_PER_NODE:4
+NUM_GPUS:8
+Loading openmpi/5.0.2-gcc
+  Loading requirement: cuda/12.3.2
+PE_HOSTFILE:r9n6 192 all.q@r9n6 <NULL>
+r5n5 192 all.q@r5n5 <NULL>
+MASTER_ADDR:r9n6
+CUDA_HOME_PATH:/apps/t4/rhel9/cuda/12.3.2
+LD_LIBRARY_PATH:/apps/t4/rhel9/free/openmpi/5.0.2-gcc/lib:/apps/t4/rhel9/free/ucx/1.16.0-gcc/lib:/apps/t4/rhel9/cuda/12.3.2/nvvm/lib64:/apps/t4/rhel9/cuda/12.3.2/extras/Debugger/lib64:/apps/t4/rhel9/cuda/12.3.2/extras/CUPTI/lib64:/apps/t4/rhel9/cuda/12.3.2/lib64:/apps/t4/rhel9/cuda/12.3.2/targets/x86_64-linux/lib
+[2024-08-20 04:15:31,991] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[2024-08-20 04:15:48,365] [INFO] [runner.py:585:main] cmd = mpirun -n 8 -hostfile hostfile_894190 --mca btl ^openib --mca btl_tcp_if_include eth0 -x UCX_TLS=tcp -x PYTHONPATH=/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/bin/python3 -u train.py --config ./configs/default.yaml --deepspeed --deepspeed_config ./configs/ds_config.json
+[2024-08-20 04:16:29,482] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[2024-08-20 04:16:29,970] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-20 04:16:30,086] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[2024-08-20 04:16:30,185] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+[2024-08-20 04:16:39,967] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-20 04:16:39,967] [INFO] [comm.py:652:init_distributed] Not using the DeepSpeed or dist launchers, attempting to detect MPI environment...
+[2024-08-20 04:16:39,967] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-20 04:16:39,967] [INFO] [comm.py:652:init_distributed] Not using the DeepSpeed or dist launchers, attempting to detect MPI environment...
+[2024-08-20 04:16:39,967] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-20 04:16:39,967] [INFO] [comm.py:652:init_distributed] Not using the DeepSpeed or dist launchers, attempting to detect MPI environment...
+[2024-08-20 04:16:39,967] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-20 04:16:39,967] [INFO] [comm.py:652:init_distributed] Not using the DeepSpeed or dist launchers, attempting to detect MPI environment...
+--------------------------------------------------------------------------
+WARNING: An invalid value was given for btl_tcp_if_include.  This
+value will be ignored.
+
+  Local host: r9n6
+  Value:      eth0
+  Message:    Unknown interface name
+--------------------------------------------------------------------------
+ 4 more processes have sent help message help-mpi-btl-tcp.txt / invalid if_inexclude
+ 1 more process has sent help message help-mpi-btl-tcp.txt / invalid if_inexclude
+[2024-08-20 04:17:11,254] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-20 04:17:11,400] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-20 04:17:11,468] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-08-20 04:17:11,512] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m async_io: please install the libaio-devel package with yum
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+[93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
+ /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:49: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  def forward(ctx, input, weight, bias=None):
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/runtime/zero/linear.py:67: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  def backward(ctx, grad_output):
+[2024-08-20 04:17:28,482] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-20 04:17:28,482] [INFO] [comm.py:652:init_distributed] Not using the DeepSpeed or dist launchers, attempting to detect MPI environment...
+[2024-08-20 04:17:28,482] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-20 04:17:28,482] [INFO] [comm.py:652:init_distributed] Not using the DeepSpeed or dist launchers, attempting to detect MPI environment...
+[2024-08-20 04:17:28,482] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-20 04:17:28,482] [INFO] [comm.py:652:init_distributed] Not using the DeepSpeed or dist launchers, attempting to detect MPI environment...
+[2024-08-20 04:17:28,482] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-08-20 04:17:28,482] [INFO] [comm.py:652:init_distributed] Not using the DeepSpeed or dist launchers, attempting to detect MPI environment...
+1 more process has sent help message help-mpi-btl-tcp.txt / invalid if_inexclude
+ [LOG_CAT_MCAST] No MCAST components selected
+
+[LOG_CAT_ML] Failure in hcoll_mcast_base_select
+[LOG_CAT_MCAST] No MCAST components selected
+
+[LOG_CAT_ML] Failure in hcoll_mcast_base_select
+[LOG_CAT_MCAST] No MCAST components selected
+
+[LOG_CAT_ML] Failure in hcoll_mcast_base_select
+[LOG_CAT_MCAST] No MCAST components selected
+
+[LOG_CAT_ML] Failure in hcoll_mcast_base_select
+[LOG_CAT_MCAST] No MCAST components selected
+
+[LOG_CAT_ML] Failure in hcoll_mcast_base_select
+[LOG_CAT_MCAST] No MCAST components selected
+
+[LOG_CAT_ML] Failure in hcoll_mcast_base_select
+[LOG_CAT_MCAST] No MCAST components selected
+
+[LOG_CAT_ML] Failure in hcoll_mcast_base_select
+[LOG_CAT_MCAST] No MCAST components selected
+
+[LOG_CAT_ML] Failure in hcoll_mcast_base_select
+[LOG_CAT_ML] component basesmuma is not available but requested in hierarchy: basesmuma,basesmuma,ucx_p2p:basesmsocket,basesmuma,p2p
+[LOG_CAT_ML] ml_discover_hierarchy exited with error
+[LOG_CAT_ML] component basesmuma is not available but requested in hierarchy: basesmuma,basesmuma,ucx_p2p:basesmsocket,basesmuma,p2p
+[LOG_CAT_ML] ml_discover_hierarchy exited with error
+[LOG_CAT_ML] component basesmuma is not available but requested in hierarchy: basesmuma,basesmuma,ucx_p2p:basesmsocket,basesmuma,p2p
+[LOG_CAT_ML] ml_discover_hierarchy exited with error
+[LOG_CAT_ML] component basesmuma is not available but requested in hierarchy: basesmuma,basesmuma,ucx_p2p:basesmsocket,basesmuma,p2p
+[LOG_CAT_ML] ml_discover_hierarchy exited with error
+[LOG_CAT_ML] component basesmuma is not available but requested in hierarchy: basesmuma,basesmuma,ucx_p2p:basesmsocket,basesmuma,p2p
+[LOG_CAT_ML] ml_discover_hierarchy exited with error
+[LOG_CAT_ML] component basesmuma is not available but requested in hierarchy: basesmuma,basesmuma,ucx_p2p:basesmsocket,basesmuma,p2p
+[LOG_CAT_ML] ml_discover_hierarchy exited with error
+[LOG_CAT_ML] component basesmuma is not available but requested in hierarchy: basesmuma,basesmuma,ucx_p2p:basesmsocket,basesmuma,p2p
+[LOG_CAT_ML] ml_discover_hierarchy exited with error
+[LOG_CAT_ML] component basesmuma is not available but requested in hierarchy: basesmuma,basesmuma,ucx_p2p:basesmsocket,basesmuma,p2p
+[LOG_CAT_ML] ml_discover_hierarchy exited with error
+[2024-08-20 04:17:29,834] [INFO] [comm.py:702:mpi_discovery] Discovered MPI settings of world_rank=3, local_rank=3, world_size=8, master_addr=10.30.2.91, master_port=29500
+[2024-08-20 04:17:29,834] [INFO] [comm.py:702:mpi_discovery] Discovered MPI settings of world_rank=1, local_rank=1, world_size=8, master_addr=10.30.2.91, master_port=29500
+[2024-08-20 04:17:29,834] [INFO] [comm.py:702:mpi_discovery] Discovered MPI settings of world_rank=2, local_rank=2, world_size=8, master_addr=10.30.2.91, master_port=29500
+[2024-08-20 04:17:29,834] [INFO] [comm.py:702:mpi_discovery] Discovered MPI settings of world_rank=0, local_rank=0, world_size=8, master_addr=10.30.2.91, master_port=29500
+[2024-08-20 04:17:29,834] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-08-20 04:17:29,834] [INFO] [comm.py:702:mpi_discovery] Discovered MPI settings of world_rank=5, local_rank=1, world_size=8, master_addr=10.30.2.91, master_port=29500
+[2024-08-20 04:17:29,834] [INFO] [comm.py:702:mpi_discovery] Discovered MPI settings of world_rank=6, local_rank=2, world_size=8, master_addr=10.30.2.91, master_port=29500
+[2024-08-20 04:17:29,834] [INFO] [comm.py:702:mpi_discovery] Discovered MPI settings of world_rank=7, local_rank=3, world_size=8, master_addr=10.30.2.91, master_port=29500
+[2024-08-20 04:17:29,834] [INFO] [comm.py:702:mpi_discovery] Discovered MPI settings of world_rank=4, local_rank=0, world_size=8, master_addr=10.30.2.91, master_port=29500
+3 more processes have sent help message help-mpi-btl-tcp.txt / invalid if_inexclude
+ 1 more process has sent help message help-mpi-btl-tcp.txt / invalid if_inexclude
+ /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+[2024-08-20 04:17:46,560] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.14.5, git-hash=unknown, git-branch=unknown
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+[2024-08-20 04:17:54,227] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/2/ub03942/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/2/ub03942/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/2/ub03942/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/2/ub03942/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/2/ub03942/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Installed CUDA version 12.3 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/2/ub03942/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Using /home/2/ub03942/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Using /home/2/ub03942/.cache/torch_extensions/py39_cu121 as PyTorch extensions root...
+Emitting ninja build file /home/2/ub03942/.cache/torch_extensions/py39_cu121/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+[1/3] c++ -MMD -MF cpu_adam.o.d -DTORCH_EXTENSION_NAME=cpu_adam -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/ops/csrc/includes -isystem /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torch/include -isystem /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torch/include/torch/csrc/api/include -isystem /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torch/include/TH -isystem /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torch/include/THC -isystem /usr/include/python3.9 -D_GLIBCXX_USE_CXX11_ABI=0 -fPIC -std=c++17 -O3 -std=c++17 -g -Wno-reorder -L/apps/t4/rhel9/cuda/12.3.2/lib64 -lcudart -lcublas -g -march=native -fopenmp -D__AVX512__ -D__ENABLE_CUDA__ -DBF16_AVAILABLE -c /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/ops/csrc/adam/cpu_adam.cpp -o cpu_adam.o 
+[2/3] c++ -MMD -MF cpu_adam_impl.o.d -DTORCH_EXTENSION_NAME=cpu_adam -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/ops/csrc/includes -isystem /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torch/include -isystem /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torch/include/torch/csrc/api/include -isystem /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torch/include/TH -isystem /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torch/include/THC -isystem /usr/include/python3.9 -D_GLIBCXX_USE_CXX11_ABI=0 -fPIC -std=c++17 -O3 -std=c++17 -g -Wno-reorder -L/apps/t4/rhel9/cuda/12.3.2/lib64 -lcudart -lcublas -g -march=native -fopenmp -D__AVX512__ -D__ENABLE_CUDA__ -DBF16_AVAILABLE -c /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/deepspeed/ops/csrc/adam/cpu_adam_impl.cpp -o cpu_adam_impl.o 
+[3/3] c++ cpu_adam.o cpu_adam_impl.o -shared -lcurand -L/apps/t4/rhel9/cuda/12.3.2/lib64 -L/gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/work/lib64/python3.9/site-packages/torch/lib -lc10 -ltorch_cpu -ltorch -ltorch_python -o cpu_adam.so
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 73.56982421875 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.002000, betas=(0.900000, 0.999000), weight_decay=0.050000, adam_w=1
+Loading extension module cpu_adam...
+Loading extension module cpu_adam...
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 73.62803101539612 seconds
+Time to load cpu_adam op: 73.62804627418518 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.002000, betas=(0.900000, 0.999000), weight_decay=0.050000, adam_w=1
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.002000, betas=(0.900000, 0.999000), weight_decay=0.050000, adam_w=1
+Time to load cpu_adam op: 73.62815141677856 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.002000, betas=(0.900000, 0.999000), weight_decay=0.050000, adam_w=1
+[2024-08-20 04:19:08,228] [INFO] [logging.py:96:log_dist] [Rank 0] Using DeepSpeed Optimizer param name adamw as basic optimizer
+[2024-08-20 04:19:08,228] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-08-20 04:19:08,232] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2024-08-20 04:19:08,232] [INFO] [utils.py:59:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2024-08-20 04:19:08,232] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2024-08-20 04:19:08,232] [INFO] [stage_1_and_2.py:148:__init__] Reduce bucket size 500000000
+[2024-08-20 04:19:08,232] [INFO] [stage_1_and_2.py:149:__init__] Allgather bucket size 500000000
+[2024-08-20 04:19:08,232] [INFO] [stage_1_and_2.py:150:__init__] CPU Offload: True
+[2024-08-20 04:19:08,232] [INFO] [stage_1_and_2.py:151:__init__] Round robin gradient partitioning: False
+Loading extension module cpu_adam...
+Loading extension module cpu_adam...
+Loading extension module cpu_adam...
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 73.60554623603821 seconds
+Time to load cpu_adam op: 73.60555410385132 seconds
+Time to load cpu_adam op: 73.60556316375732 seconds
+Time to load cpu_adam op: 73.60553979873657 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.002000, betas=(0.900000, 0.999000), weight_decay=0.050000, adam_w=1
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.002000, betas=(0.900000, 0.999000), weight_decay=0.050000, adam_w=1
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.002000, betas=(0.900000, 0.999000), weight_decay=0.050000, adam_w=1
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.002000, betas=(0.900000, 0.999000), weight_decay=0.050000, adam_w=1
+[2024-08-20 04:19:09,507] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
+[2024-08-20 04:19:09,507] [INFO] [utils.py:782:see_memory_usage] MA 0.05 GB         Max_MA 0.05 GB         CA 0.07 GB         Max_CA 0 GB 
+[2024-08-20 04:19:09,507] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 54.65 GB, percent = 7.2%
+[2024-08-20 04:19:09,639] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
+[2024-08-20 04:19:09,639] [INFO] [utils.py:782:see_memory_usage] MA 0.05 GB         Max_MA 0.05 GB         CA 0.07 GB         Max_CA 0 GB 
+[2024-08-20 04:19:09,639] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 54.69 GB, percent = 7.2%
+[2024-08-20 04:19:09,639] [INFO] [stage_1_and_2.py:543:__init__] optimizer state initialized
+[2024-08-20 04:19:09,755] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
+[2024-08-20 04:19:09,756] [INFO] [utils.py:782:see_memory_usage] MA 0.05 GB         Max_MA 0.05 GB         CA 0.07 GB         Max_CA 0 GB 
+[2024-08-20 04:19:09,756] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 54.69 GB, percent = 7.2%
+[2024-08-20 04:19:09,758] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer
+[2024-08-20 04:19:09,758] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using configured LR scheduler = WarmupCosineLR
+[2024-08-20 04:19:09,758] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = <deepspeed.runtime.lr_schedules.WarmupCosineLR object at 0x14fb4004f430>
+[2024-08-20 04:19:09,758] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.002], mom=[[0.9, 0.999]]
+[2024-08-20 04:19:09,758] [INFO] [config.py:997:print] DeepSpeedEngine configuration:
+[2024-08-20 04:19:09,758] [INFO] [config.py:1001:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-08-20 04:19:09,758] [INFO] [config.py:1001:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-08-20 04:19:09,758] [INFO] [config.py:1001:print]   amp_enabled .................. False
+[2024-08-20 04:19:09,758] [INFO] [config.py:1001:print]   amp_params ................... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   bfloat16_enabled ............. True
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   bfloat16_immediate_grad_update  False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   checkpoint_parallel_write_pipeline  False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   checkpoint_tag_validation_enabled  True
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   checkpoint_tag_validation_fail  False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x14fb4405ec70>
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   communication_data_type ...... None
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   curriculum_enabled_legacy .... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   curriculum_params_legacy ..... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   data_efficiency_enabled ...... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   dataloader_drop_last ......... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   disable_allgather ............ False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   dump_state ................... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   dynamic_loss_scale_args ...... None
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   eigenvalue_enabled ........... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   eigenvalue_gas_boundary_resolution  1
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   eigenvalue_layer_num ......... 0
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   eigenvalue_max_iter .......... 100
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   eigenvalue_stability ......... 1e-06
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   eigenvalue_tol ............... 0.01
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   eigenvalue_verbose ........... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   elasticity_enabled ........... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   fp16_auto_cast ............... None
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   fp16_enabled ................. False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   fp16_master_weights_and_gradients  False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   global_rank .................. 0
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   grad_accum_dtype ............. None
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   gradient_accumulation_steps .. 1
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   gradient_clipping ............ 1
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   gradient_predivide_factor .... 1.0
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   graph_harvesting ............. False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   initial_dynamic_scale ........ 1
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   load_universal_checkpoint .... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   loss_scale ................... 1.0
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   memory_breakdown ............. False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   mics_hierarchial_params_gather  False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   mics_shard_size .............. -1
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   optimizer_legacy_fusion ...... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   optimizer_name ............... adamw
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   optimizer_params ............. {'lr': 0.002, 'betas': [0.9, 0.999], 'eps': 1e-08, 'weight_decay': 0.05}
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   pld_enabled .................. False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   pld_params ................... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   prescale_gradients ........... False
+[2024-08-20 04:19:09,759] [INFO] [config.py:1001:print]   scheduler_name ............... WarmupCosineLR
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   scheduler_params ............. {'total_num_steps': 250, 'warmup_num_steps': 10}
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   seq_parallel_communication_data_type  torch.float32
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   sparse_attention ............. None
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   sparse_gradients_enabled ..... False
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   steps_per_print .............. 10
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   timers_config ................ enabled=True synchronized=True
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   train_batch_size ............. 4480
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   train_micro_batch_size_per_gpu  560
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   use_data_before_expert_parallel_  False
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   use_node_local_storage ....... False
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   wall_clock_breakdown ......... False
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   weight_quantization_config ... None
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   world_size ................... 8
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   zero_allow_untested_optimizer  False
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=True, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   zero_enabled ................. True
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   zero_force_ds_cpu_optimizer .. True
+[2024-08-20 04:19:09,760] [INFO] [config.py:1001:print]   zero_optimization_stage ...... 2
+[2024-08-20 04:19:09,760] [INFO] [config.py:987:print_user_config]   json = {
+    "train_batch_size": 4.480000e+03, 
+    "train_micro_batch_size_per_gpu": 560, 
+    "gradient_accumulation_steps": 1, 
+    "optimizer": {
+        "type": "AdamW", 
+        "params": {
+            "lr": 0.002, 
+            "betas": [0.9, 0.999], 
+            "eps": 1e-08, 
+            "weight_decay": 0.05
+        }
+    }, 
+    "scheduler": {
+        "type": "WarmupCosineLR", 
+        "params": {
+            "total_num_steps": 250, 
+            "warmup_num_steps": 10
+        }
+    }, 
+    "gradient_clipping": 1, 
+    "bf16": {
+        "enabled": true
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "offload_optimizer": {
+            "device": "cpu", 
+            "pin_memory": true
+        }, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 5.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 5.000000e+08, 
+        "contiguous_gradients": true
+    }
+}
+wandb: Currently logged in as: 37channel. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.17.7
+wandb: Run data is saved locally in /gs/bs/tgh-24IDH/yama/deepspeed-abci-tutorial/wandb/run-20240820_041911-pc1exfxy
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run tutorial-tsubame40
+wandb: ⭐️ View project at https://wandb.ai/37channel/deepspeed-tsubame40-tutorial
+wandb: 🚀 View run at https://wandb.ai/37channel/deepspeed-tsubame40-tutorial/runs/pc1exfxy
+Total training dataset length: 1281167
+start main loop: 1 epochs
+[2024-08-20 04:20:14,269] [INFO] [logging.py:96:log_dist] [Rank 0] step=10, skipped=0, lr=[0.0019999999999999996], mom=[[0.9, 0.999]]
+[2024-08-20 04:20:14,276] [INFO] [timer.py:259:stop] epoch=0/micro_step=10/global_step=10, RunningAvgSamplesPerSec=959.6312924546718, CurrSamplesPerSec=6312.779538584806, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:21:14,257] [INFO] [logging.py:96:log_dist] [Rank 0] step=20, skipped=0, lr=[0.001991445716887673], mom=[[0.9, 0.999]]
+[2024-08-20 04:21:14,268] [INFO] [timer.py:259:stop] epoch=0/micro_step=20/global_step=20, RunningAvgSamplesPerSec=828.4619140018626, CurrSamplesPerSec=2696.7986699771664, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:22:15,417] [INFO] [logging.py:96:log_dist] [Rank 0] step=30, skipped=0, lr=[0.0019659292337064396], mom=[[0.9, 0.999]]
+[2024-08-20 04:22:15,419] [INFO] [timer.py:259:stop] epoch=0/micro_step=30/global_step=30, RunningAvgSamplesPerSec=791.4872624763633, CurrSamplesPerSec=945.9227338471437, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:23:12,916] [INFO] [logging.py:96:log_dist] [Rank 0] step=40, skipped=0, lr=[0.0019238871445580357], mom=[[0.9, 0.999]]
+[2024-08-20 04:23:12,922] [INFO] [timer.py:259:stop] epoch=0/micro_step=40/global_step=40, RunningAvgSamplesPerSec=788.1963785076973, CurrSamplesPerSec=1127.5034300320194, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:24:11,325] [INFO] [logging.py:96:log_dist] [Rank 0] step=50, skipped=0, lr=[0.0018660388012440602], mom=[[0.9, 0.999]]
+[2024-08-20 04:24:11,346] [INFO] [timer.py:259:stop] epoch=0/micro_step=50/global_step=50, RunningAvgSamplesPerSec=783.6504038926012, CurrSamplesPerSec=1719.4795926519284, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:25:10,027] [INFO] [logging.py:96:log_dist] [Rank 0] step=60, skipped=0, lr=[0.001793374004957206], mom=[[0.9, 0.999]]
+[2024-08-20 04:25:10,034] [INFO] [timer.py:259:stop] epoch=0/micro_step=60/global_step=60, RunningAvgSamplesPerSec=780.0816070753189, CurrSamplesPerSec=2112.289716163836, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:25:10,035] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint 60 is about to be saved!
+[2024-08-20 04:25:10,125] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/mp_rank_00_model_states.pt
+[2024-08-20 04:25:10,125] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/mp_rank_00_model_states.pt...
+[2024-08-20 04:25:10,287] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/mp_rank_00_model_states.pt.
+[2024-08-20 04:25:10,293] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-08-20 04:25:10,293] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-08-20 04:25:10,293] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt...
+[2024-08-20 04:25:10,293] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt...
+[2024-08-20 04:25:10,294] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt...
+[2024-08-20 04:25:10,294] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt...
+[2024-08-20 04:25:10,294] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt...
+[2024-08-20 04:25:10,294] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt...
+[2024-08-20 04:25:10,340] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-08-20 04:25:10,340] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-08-20 04:25:10,341] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 60 is ready now!
+[2024-08-20 04:25:10,343] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt.
+[2024-08-20 04:25:10,343] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt
+[2024-08-20 04:25:10,343] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 60 is ready now!
+[2024-08-20 04:25:10,344] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-08-20 04:25:10,345] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt.
+[2024-08-20 04:25:10,345] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt
+[2024-08-20 04:25:10,346] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 60 is ready now!
+[2024-08-20 04:25:10,351] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-08-20 04:25:10,351] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 60 is ready now!
+[2024-08-20 04:25:10,426] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt.
+[2024-08-20 04:25:10,426] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt
+[2024-08-20 04:25:10,426] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt.
+[2024-08-20 04:25:10,426] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt
+[2024-08-20 04:25:10,426] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt.
+[2024-08-20 04:25:10,426] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt
+[2024-08-20 04:25:10,426] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt.
+[2024-08-20 04:25:10,426] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/60/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt
+[2024-08-20 04:25:10,431] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 60 is ready now!
+[2024-08-20 04:25:10,431] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 60 is ready now!
+[2024-08-20 04:25:10,431] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 60 is ready now!
+[2024-08-20 04:25:10,431] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 60 is ready now!
+[2024-08-20 04:26:09,995] [INFO] [logging.py:96:log_dist] [Rank 0] step=70, skipped=0, lr=[0.001707136070508429], mom=[[0.9, 0.999]]
+[2024-08-20 04:26:10,005] [INFO] [timer.py:259:stop] epoch=0/micro_step=70/global_step=70, RunningAvgSamplesPerSec=775.8264239433271, CurrSamplesPerSec=1509.999219433273, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:27:08,922] [INFO] [logging.py:96:log_dist] [Rank 0] step=80, skipped=0, lr=[0.0016088005528658198], mom=[[0.9, 0.999]]
+[2024-08-20 04:27:08,928] [INFO] [timer.py:259:stop] epoch=0/micro_step=80/global_step=80, RunningAvgSamplesPerSec=773.8069571740759, CurrSamplesPerSec=2157.296463700619, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:28:10,369] [INFO] [logging.py:96:log_dist] [Rank 0] step=90, skipped=0, lr=[0.00150005], mom=[[0.9, 0.999]]
+[2024-08-20 04:28:10,379] [INFO] [timer.py:259:stop] epoch=0/micro_step=90/global_step=90, RunningAvgSamplesPerSec=768.4480994634021, CurrSamplesPerSec=890.6281140410532, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:29:08,955] [INFO] [logging.py:96:log_dist] [Rank 0] step=100, skipped=0, lr=[0.0013827451640218533], mom=[[0.9, 0.999]]
+[2024-08-20 04:29:08,962] [INFO] [timer.py:259:stop] epoch=0/micro_step=100/global_step=100, RunningAvgSamplesPerSec=768.0704754870632, CurrSamplesPerSec=1004.0201842377821, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:30:08,660] [INFO] [logging.py:96:log_dist] [Rank 0] step=110, skipped=0, lr=[0.0012588931631980105], mom=[[0.9, 0.999]]
+[2024-08-20 04:30:08,666] [INFO] [timer.py:259:stop] epoch=0/micro_step=110/global_step=110, RunningAvgSamplesPerSec=766.4003197502128, CurrSamplesPerSec=747.9154143554939, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:31:05,369] [INFO] [logging.py:96:log_dist] [Rank 0] step=120, skipped=0, lr=[0.0011306131396008297], mom=[[0.9, 0.999]]
+[2024-08-20 04:31:05,379] [INFO] [timer.py:259:stop] epoch=0/micro_step=120/global_step=120, RunningAvgSamplesPerSec=768.3431310614199, CurrSamplesPerSec=914.4669163119448, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:31:05,380] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint 120 is about to be saved!
+[2024-08-20 04:31:05,385] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/mp_rank_00_model_states.pt
+[2024-08-20 04:31:05,386] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/mp_rank_00_model_states.pt...
+[2024-08-20 04:31:05,463] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/mp_rank_00_model_states.pt.
+[2024-08-20 04:31:05,537] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt...
+[2024-08-20 04:31:05,537] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-08-20 04:31:05,537] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt...
+[2024-08-20 04:31:05,537] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-08-20 04:31:05,537] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt...
+[2024-08-20 04:31:05,537] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt...
+[2024-08-20 04:31:05,537] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt...
+[2024-08-20 04:31:05,537] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt...
+[2024-08-20 04:31:05,586] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt.
+[2024-08-20 04:31:05,586] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt
+[2024-08-20 04:31:05,587] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 120 is ready now!
+[2024-08-20 04:31:05,590] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt.
+[2024-08-20 04:31:05,590] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt
+[2024-08-20 04:31:05,590] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 120 is ready now!
+[2024-08-20 04:31:05,591] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt.
+[2024-08-20 04:31:05,592] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt
+[2024-08-20 04:31:05,592] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 120 is ready now!
+[2024-08-20 04:31:05,597] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt.
+[2024-08-20 04:31:05,597] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt
+[2024-08-20 04:31:05,597] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 120 is ready now!
+[2024-08-20 04:31:05,606] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt.
+[2024-08-20 04:31:05,606] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt
+[2024-08-20 04:31:05,606] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 120 is ready now!
+[2024-08-20 04:31:05,710] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-08-20 04:31:05,711] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-08-20 04:31:05,711] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 120 is ready now!
+[2024-08-20 04:31:05,728] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt.
+[2024-08-20 04:31:05,728] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt
+[2024-08-20 04:31:05,728] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 120 is ready now!
+[2024-08-20 04:31:05,736] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-08-20 04:31:05,804] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/120/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-08-20 04:31:05,804] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 120 is ready now!
+[2024-08-20 04:32:02,874] [INFO] [logging.py:96:log_dist] [Rank 0] step=130, skipped=0, lr=[0.0010001000000000003], mom=[[0.9, 0.999]]
+[2024-08-20 04:32:02,875] [INFO] [timer.py:259:stop] epoch=0/micro_step=130/global_step=130, RunningAvgSamplesPerSec=769.6640019431162, CurrSamplesPerSec=1029.3114937184116, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:33:01,004] [INFO] [logging.py:96:log_dist] [Rank 0] step=140, skipped=0, lr=[0.0008695868603991706], mom=[[0.9, 0.999]]
+[2024-08-20 04:33:01,013] [INFO] [timer.py:259:stop] epoch=0/micro_step=140/global_step=140, RunningAvgSamplesPerSec=769.7329459551705, CurrSamplesPerSec=799.7114883722998, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:33:59,027] [INFO] [logging.py:96:log_dist] [Rank 0] step=150, skipped=0, lr=[0.0007413068368019896], mom=[[0.9, 0.999]]
+[2024-08-20 04:33:59,033] [INFO] [timer.py:259:stop] epoch=0/micro_step=150/global_step=150, RunningAvgSamplesPerSec=769.8980310534769, CurrSamplesPerSec=950.6345328030781, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:34:56,325] [INFO] [logging.py:96:log_dist] [Rank 0] step=160, skipped=0, lr=[0.0006174548359781468], mom=[[0.9, 0.999]]
+[2024-08-20 04:34:56,331] [INFO] [timer.py:259:stop] epoch=0/micro_step=160/global_step=160, RunningAvgSamplesPerSec=770.6472630123459, CurrSamplesPerSec=919.4494259434426, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:35:53,660] [INFO] [logging.py:96:log_dist] [Rank 0] step=170, skipped=0, lr=[0.0005001500000000002], mom=[[0.9, 0.999]]
+[2024-08-20 04:35:53,680] [INFO] [timer.py:259:stop] epoch=0/micro_step=170/global_step=170, RunningAvgSamplesPerSec=771.2700235348304, CurrSamplesPerSec=1328.5425245280117, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:36:51,982] [INFO] [logging.py:96:log_dist] [Rank 0] step=180, skipped=0, lr=[0.00039139944713418017], mom=[[0.9, 0.999]]
+[2024-08-20 04:36:51,990] [INFO] [timer.py:259:stop] epoch=0/micro_step=180/global_step=180, RunningAvgSamplesPerSec=771.1042684520227, CurrSamplesPerSec=1585.478169473168, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:36:51,991] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint 180 is about to be saved!
+[2024-08-20 04:36:52,000] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/mp_rank_00_model_states.pt
+[2024-08-20 04:36:52,000] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/mp_rank_00_model_states.pt...
+[2024-08-20 04:36:52,075] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/mp_rank_00_model_states.pt.
+[2024-08-20 04:36:52,079] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-08-20 04:36:52,079] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt...
+[2024-08-20 04:36:52,079] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-08-20 04:36:52,079] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt...
+[2024-08-20 04:36:52,079] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt...
+[2024-08-20 04:36:52,079] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt...
+[2024-08-20 04:36:52,079] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt...
+[2024-08-20 04:36:52,079] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt...
+[2024-08-20 04:36:52,124] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt.
+[2024-08-20 04:36:52,125] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt
+[2024-08-20 04:36:52,125] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 180 is ready now!
+[2024-08-20 04:36:52,125] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt.
+[2024-08-20 04:36:52,125] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt
+[2024-08-20 04:36:52,125] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 180 is ready now!
+[2024-08-20 04:36:52,125] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt.
+[2024-08-20 04:36:52,126] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt
+[2024-08-20 04:36:52,126] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 180 is ready now!
+[2024-08-20 04:36:52,126] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-08-20 04:36:52,128] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-08-20 04:36:52,128] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 180 is ready now!
+[2024-08-20 04:36:52,129] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt.
+[2024-08-20 04:36:52,129] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt
+[2024-08-20 04:36:52,129] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 180 is ready now!
+[2024-08-20 04:36:52,130] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt.
+[2024-08-20 04:36:52,130] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt
+[2024-08-20 04:36:52,130] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 180 is ready now!
+[2024-08-20 04:36:52,132] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt.
+[2024-08-20 04:36:52,132] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt
+[2024-08-20 04:36:52,132] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 180 is ready now!
+[2024-08-20 04:36:52,159] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-08-20 04:36:52,159] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/180/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-08-20 04:36:52,159] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 180 is ready now!
+[2024-08-20 04:37:49,341] [INFO] [logging.py:96:log_dist] [Rank 0] step=190, skipped=0, lr=[0.0002930639294915712], mom=[[0.9, 0.999]]
+[2024-08-20 04:37:49,346] [INFO] [timer.py:259:stop] epoch=0/micro_step=190/global_step=190, RunningAvgSamplesPerSec=771.7501794106788, CurrSamplesPerSec=1030.1103412228647, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:38:47,435] [INFO] [logging.py:96:log_dist] [Rank 0] step=200, skipped=0, lr=[0.00020682599504279387], mom=[[0.9, 0.999]]
+[2024-08-20 04:38:47,438] [INFO] [timer.py:259:stop] epoch=0/micro_step=200/global_step=200, RunningAvgSamplesPerSec=771.723243993771, CurrSamplesPerSec=973.8551085230328, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:39:45,133] [INFO] [logging.py:96:log_dist] [Rank 0] step=210, skipped=0, lr=[0.00013416119875593973], mom=[[0.9, 0.999]]
+[2024-08-20 04:39:45,139] [INFO] [timer.py:259:stop] epoch=0/micro_step=210/global_step=210, RunningAvgSamplesPerSec=771.9492289654048, CurrSamplesPerSec=844.8843655812011, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:40:43,364] [INFO] [logging.py:96:log_dist] [Rank 0] step=220, skipped=0, lr=[7.63128554419644e-05], mom=[[0.9, 0.999]]
+[2024-08-20 04:40:43,380] [INFO] [timer.py:259:stop] epoch=0/micro_step=220/global_step=220, RunningAvgSamplesPerSec=771.824577855774, CurrSamplesPerSec=1131.9797776636537, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:41:42,004] [INFO] [logging.py:96:log_dist] [Rank 0] step=230, skipped=0, lr=[3.42707662935606e-05], mom=[[0.9, 0.999]]
+[2024-08-20 04:41:42,008] [INFO] [timer.py:259:stop] epoch=0/micro_step=230/global_step=230, RunningAvgSamplesPerSec=771.4865276132169, CurrSamplesPerSec=974.1101600001793, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:42:41,973] [INFO] [logging.py:96:log_dist] [Rank 0] step=240, skipped=0, lr=[8.754283112327e-06], mom=[[0.9, 0.999]]
+[2024-08-20 04:42:41,989] [INFO] [timer.py:259:stop] epoch=0/micro_step=240/global_step=240, RunningAvgSamplesPerSec=770.4230651920309, CurrSamplesPerSec=724.9538728245359, MemAllocated=0.27GB, MaxMemAllocated=25.02GB
+[2024-08-20 04:42:41,990] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint 240 is about to be saved!
+[2024-08-20 04:42:41,996] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/mp_rank_00_model_states.pt
+[2024-08-20 04:42:41,996] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/mp_rank_00_model_states.pt...
+[2024-08-20 04:42:42,082] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/mp_rank_00_model_states.pt.
+[2024-08-20 04:42:42,094] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-08-20 04:42:42,094] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt...
+[2024-08-20 04:42:42,094] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt...
+[2024-08-20 04:42:42,094] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-08-20 04:42:42,094] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt...
+[2024-08-20 04:42:42,094] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt...
+[2024-08-20 04:42:42,094] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt...
+[2024-08-20 04:42:42,094] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt...
+[2024-08-20 04:42:42,138] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt.
+[2024-08-20 04:42:42,138] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_3_mp_rank_00_optim_states.pt
+[2024-08-20 04:42:42,138] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 240 is ready now!
+[2024-08-20 04:42:42,138] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-08-20 04:42:42,139] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-08-20 04:42:42,139] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 240 is ready now!
+[2024-08-20 04:42:42,140] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt.
+[2024-08-20 04:42:42,140] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_7_mp_rank_00_optim_states.pt
+[2024-08-20 04:42:42,140] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 240 is ready now!
+[2024-08-20 04:42:42,140] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt.
+[2024-08-20 04:42:42,140] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_5_mp_rank_00_optim_states.pt
+[2024-08-20 04:42:42,140] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 240 is ready now!
+[2024-08-20 04:42:42,142] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt.
+[2024-08-20 04:42:42,142] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_2_mp_rank_00_optim_states.pt
+[2024-08-20 04:42:42,143] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 240 is ready now!
+[2024-08-20 04:42:42,145] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-08-20 04:42:42,147] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-08-20 04:42:42,147] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 240 is ready now!
+[2024-08-20 04:42:42,153] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt.
+[2024-08-20 04:42:42,153] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_6_mp_rank_00_optim_states.pt
+[2024-08-20 04:42:42,153] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 240 is ready now!
+[2024-08-20 04:42:42,163] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt.
+[2024-08-20 04:42:42,163] [INFO] [engine.py:3527:_save_zero_checkpoint] zero checkpoint saved /gs/bs/tgh-24IDH/yama/scratch/deepspeed-tutorial/tutorial-tsubame40/240/bf16_zero_pp_rank_4_mp_rank_00_optim_states.pt
+[2024-08-20 04:42:42,164] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint 240 is ready now!
+[2024-08-20 04:43:40,506] [INFO] [logging.py:96:log_dist] [Rank 0] step=250, skipped=0, lr=[2.0000000000000002e-07], mom=[[0.9, 0.999]]
+[2024-08-20 04:43:40,506] [INFO] [timer.py:259:stop] epoch=0/micro_step=250/global_step=250, RunningAvgSamplesPerSec=770.3214872701602, CurrSamplesPerSec=1107.252394149852, MemAllocated=0.27GB, MaxMemAllocated=25.02GB

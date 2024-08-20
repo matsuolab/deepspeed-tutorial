@@ -92,6 +92,7 @@ def run(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', type=str, required=True, help='Path to the config file')
+    parser.add_argument("--local_rank", type=int, default=-1)  # Added to prevent error when running on TSUBAME4.0 
     cmd_args = parser.parse_args()
     config = load_config(cmd_args.config)
     args = Box(config, default_box=True)

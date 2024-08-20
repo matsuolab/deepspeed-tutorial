@@ -1,4 +1,4 @@
-# deepspeed-abci-tutorial
+# deepspeed-TSUBAME4.0-tutorial
 You can be distributed learning master with this repogitory!
 ![ladder](./docs/ladder.png)
 
@@ -13,7 +13,7 @@ Setting
 - Training Model: ResNet50 (full scratch)
 - Epoch: 1
 - Batch size: 10,000
-- V100: 9node 36 GPUs
+- H100: 2 node 8 GPUs
 
 ## Edit config before training
 > [!NOTE]
@@ -44,7 +44,7 @@ source scripts/import-env.sh .env
 cd $PATH_TO_WORKING_DIR 
 ```
 ```
-module load python/3.11/3.11.9 cuda/11.7/11.7.1 cudnn/8.9/8.9.7 hpcx-mt/2.12
+module load openmpi/5.0.2-gcc
 ```
 ```
 python3 -m venv work
@@ -64,7 +64,7 @@ deactivate
 cd $PATH_TO_WORKING_DIR 
 ```
 ```
-qsub -g gcb50389 scripts/train.sh
+qsub -g ${ID_GROUP} scripts/train.sh
 ```
 then you can see training log
 ```
@@ -84,7 +84,7 @@ This is just check we can load weight into single GPU. So only few images is use
 cd $PATH_TO_WORKING_DIR 
 ```
 ```
-qsub -g gcb50389 scripts/eval.sh
+qsub -g ${ID_GROUP} scripts/eval.sh
 ``` 
 
 
