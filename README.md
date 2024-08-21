@@ -59,7 +59,7 @@ pip3 install -r requirements.txt
 deactivate
 ```
 
-## Multinode Training on 9 node 36 V100 GPUs 
+## Multinode Training on 2 node 8 H100 GPUs 
 ```
 cd $PATH_TO_WORKING_DIR 
 ```
@@ -78,7 +78,7 @@ cat hostfile_xxxxx
 ```
 Like this-> [hostfile_42638672](./docs/hostfile_42638672)
 
-## Evaluate on single V100 GPU
+## Evaluate on single H100 GPU
 This is just check we can load weight into single GPU. So only few images is used to eval. 
 ```
 cd $PATH_TO_WORKING_DIR 
